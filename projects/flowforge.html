@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlowForge — Autonomous Task Decomposition Engine — Shashank Sekhar VS</title>
+<meta name="description" content="A multi-agent pipeline built with CrewAI and the Anthropic API that plans, researches, drafts and reviews deliverables autonomously.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="bg-fx" aria-hidden="true">
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
+</div>
+
+<header class="site-header">
+  <a href="../index.html" class="mark">SS<span class="mark-dot">·</span></a>
+  <nav class="nav">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#tech">Tech</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#education">Education</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+  <a href="mailto:vsshashank08@gmail.com" class="nav-cta">Say hello</a>
+</header>
+
+<main>
+  <p class="breadcrumb" data-reveal><a href="../index.html#work">Work</a> / AI Engineering / 02</p>
+
+  <section class="proj-hero">
+    <p class="proj-kicker" data-reveal>AI Engineering — Case Study</p>
+    <h1 class="proj-title" data-reveal>FlowForge — Autonomous Task Decomposition &amp; Execution Engine</h1>
+    <p class="proj-dek" data-reveal>
+      A multi-agent pipeline that takes a single project brief and turns it into a finished
+      deliverable — planning, researching, drafting and reviewing itself through role-specialized
+      agents with feedback loops between them.
+    </p>
+    <div class="meta-row" data-reveal>
+      <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">AI / ML Engineer</span></div>
+      <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">Multi-agent system</span></div>
+      <div class="meta-item"><span class="meta-label">Framework</span><span class="meta-value">CrewAI + Anthropic API</span></div>
+      <div class="meta-item"><span class="meta-label">Output</span><span class="meta-value">Structured document</span></div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">01 — Overview</p>
+    <h2 class="proj-section-head" data-reveal>One brief in, a finished draft out</h2>
+    <p class="proj-lede" data-reveal>
+      FlowForge exists to answer a specific question: can a brief alone — no step-by-step
+      instructions — be turned into a reviewed, structured deliverable by agents that plan and
+      critique their own work?
+    </p>
+    <p class="proj-body" data-reveal>
+      A single generalist LLM call struggles with multi-stage work: it tends to blend planning,
+      research and writing into one pass, with no real checkpoint for quality. FlowForge instead
+      decomposes the brief into a pipeline of specialized roles, each with a narrow job and a
+      clear handoff to the next, so the system can catch its own mistakes before they reach the
+      final output.
+    </p>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">02 — How it works</p>
+    <h2 class="proj-section-head" data-reveal>Role-specialized agents, inter-agent feedback</h2>
+    <div class="proj-cols" data-reveal>
+      <div class="proj-col">
+        <h4>Planner</h4>
+        <p>Ingests the raw project brief and decomposes it into a task graph — discrete,
+        ordered sub-tasks each subsequent agent can act on independently.</p>
+      </div>
+      <div class="proj-col">
+        <h4>Researcher</h4>
+        <p>Gathers the supporting information each sub-task needs before drafting starts,
+        keeping the writer grounded rather than improvising from the brief alone.</p>
+      </div>
+      <div class="proj-col">
+        <h4>Drafter</h4>
+        <p>Produces the actual deliverable content per sub-task, using the planner's structure
+        and the researcher's material as its working context.</p>
+      </div>
+      <div class="proj-col">
+        <h4>Reviewer</h4>
+        <p>Scores the draft against a quality threshold and either approves it or sends it back
+        with specific feedback — the loop that keeps the pipeline from shipping a first draft.</p>
+      </div>
+    </div>
+    <p class="proj-body" style="margin-top:2rem" data-reveal>
+      The reviewer's feedback loop is the core design decision: rather than a single linear
+      pass, drafts cycle back to the drafting stage until they clear a defined quality
+      threshold, at which point the pipeline exits and assembles the final structured document.
+    </p>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">03 — Tech Stack</p>
+    <h2 class="proj-section-head" data-reveal>What it's built with</h2>
+    <div class="stack-groups" data-reveal>
+      <div class="skill-group">
+        <span class="skill-cat">Orchestration</span>
+        <div class="tags"><span>CrewAI</span><span>Role-based agents</span></div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-cat">Model</span>
+        <div class="tags"><span>Anthropic API</span></div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-cat">Language</span>
+        <div class="tags"><span>Python</span></div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-cat">Output</span>
+        <div class="tags"><span>Structured document export</span><span>Quality-threshold exit conditions</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">04 — Learnings</p>
+    <div class="numbered-grid" data-reveal>
+      <div class="numbered-card">
+        <span class="num">01</span>
+        <h4>Specialization beats a single mega-prompt</h4>
+        <p>Splitting planning, research, drafting and review into distinct agents produced more
+        coherent output than asking one agent to do all four in sequence.</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">02</span>
+        <h4>The feedback loop is the product</h4>
+        <p>The reviewer-to-drafter loop, not any individual agent, is what made output quality
+        consistent — the exit condition is what stops the system from either under- or
+        over-iterating.</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">03</span>
+        <h4>Structured handoffs prevent context loss</h4>
+        <p>Passing structured intermediate outputs (task graphs, research notes) between agents,
+        rather than raw free text, kept later stages from losing the intent of earlier ones.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="proj-nav" data-reveal>
+    <a href="supply-chain-ai.html">← Previous: Supply Chain AI</a>
+    <a href="trackr.html">Next: Trackr →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <span>© <span id="year"></span> Shashank Sekhar VS</span>
+  <span>Designed &amp; built by hand.</span>
+</footer>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

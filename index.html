@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shashank Sekhar VS — AI Engineer, Full-Stack Developer &amp; Product Designer</title>
+<meta name="description" content="Portfolio of Shashank Sekhar VS — AI/ML systems, full-stack web products, and UX/UI design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="bg-fx" aria-hidden="true">
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
+</div>
+<script>
+function techIconFallback(img) {
+  var span = document.createElement("span");
+  span.className = "tech-fallback";
+  span.textContent = (img.alt || "?").replace(/[^A-Za-z0-9]/g, "").slice(0, 2).toUpperCase();
+  img.replaceWith(span);
+}
+</script>
+
+<header class="site-header">
+  <a href="#top" class="mark">SS<span class="mark-dot">·</span></a>
+  <nav class="nav">
+    <a href="#work">Work</a>
+    <a href="#tech">Tech</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="mailto:vsshashank08@gmail.com" class="nav-cta">Say hello</a>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="eyebrow" data-reveal>Portfolio — 2026 Edition</p>
+    <h1 class="hero-name" data-reveal>
+      Shashank<br>Sekhar&nbsp;<span class="italic">VS</span>
+    </h1>
+    <div class="hero-roles" data-reveal>
+      <span>AI/ML Engineer</span>
+      <span class="slash">/</span>
+      <span>Full-Stack Developer</span>
+      <span class="slash">/</span>
+      <span>Product Designer</span>
+    </div>
+    <p class="hero-copy" data-reveal>
+      I build systems that reason, ship the products that run them, and design the interfaces
+      people actually touch. Reinforcement-learning agents, production web platforms, and
+      research-backed UX — under one roof.
+    </p>
+    <div class="hero-actions" data-reveal>
+      <a href="#work" class="btn btn-primary">View selected work</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch →</a>
+    </div>
+    <div class="hero-figure" aria-hidden="true">
+      <svg class="neural-viz" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+        <circle class="ring" cx="160" cy="160" r="150"/>
+        <circle class="ring ring-dashed" cx="160" cy="160" r="130"/>
+        <g class="diagram-group">
+          <!-- edges: input -> hidden -->
+          <g class="edge">
+            <line x1="40" y1="60" x2="160" y2="40"/>
+            <line x1="40" y1="60" x2="160" y2="120"/>
+            <line x1="40" y1="60" x2="160" y2="200"/>
+            <line x1="40" y1="60" x2="160" y2="280"/>
+            <line x1="40" y1="160" x2="160" y2="40"/>
+            <line x1="40" y1="160" x2="160" y2="120"/>
+            <line x1="40" y1="160" x2="160" y2="200"/>
+            <line x1="40" y1="160" x2="160" y2="280"/>
+            <line x1="40" y1="260" x2="160" y2="40"/>
+            <line x1="40" y1="260" x2="160" y2="120"/>
+            <line x1="40" y1="260" x2="160" y2="200"/>
+            <line x1="40" y1="260" x2="160" y2="280"/>
+          </g>
+          <!-- edges: hidden -> output -->
+          <g class="edge">
+            <line x1="160" y1="40" x2="280" y2="100"/>
+            <line x1="160" y1="120" x2="280" y2="100"/>
+            <line x1="160" y1="200" x2="280" y2="100"/>
+            <line x1="160" y1="280" x2="280" y2="100"/>
+            <line x1="160" y1="40" x2="280" y2="220"/>
+            <line x1="160" y1="120" x2="280" y2="220"/>
+            <line x1="160" y1="200" x2="280" y2="220"/>
+            <line x1="160" y1="280" x2="280" y2="220"/>
+          </g>
+          <!-- active signal paths -->
+          <path class="edge-active" d="M40,60 L160,40 L280,100" style="animation-delay:0s"/>
+          <path class="edge-active" d="M40,160 L160,120 L280,100" style="animation-delay:0.6s"/>
+          <path class="edge-active" d="M40,260 L160,200 L280,220" style="animation-delay:1.2s"/>
+          <path class="edge-active" d="M40,160 L160,280 L280,220" style="animation-delay:1.8s"/>
+
+          <!-- input nodes -->
+          <circle class="node" cx="40" cy="60" r="6" style="animation-delay:0s"/>
+          <circle class="node" cx="40" cy="160" r="6" style="animation-delay:0.4s"/>
+          <circle class="node" cx="40" cy="260" r="6" style="animation-delay:0.8s"/>
+          <!-- hidden nodes -->
+          <circle class="node" cx="160" cy="40" r="6" style="animation-delay:0.2s"/>
+          <circle class="node" cx="160" cy="120" r="6" style="animation-delay:0.6s"/>
+          <circle class="node" cx="160" cy="200" r="6" style="animation-delay:1s"/>
+          <circle class="node" cx="160" cy="280" r="6" style="animation-delay:1.4s"/>
+          <!-- output nodes -->
+          <circle class="node node-out" cx="280" cy="100" r="8" style="animation-delay:0.3s"/>
+          <circle class="node node-out" cx="280" cy="220" r="8" style="animation-delay:0.9s"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ABOUT / STATS -->
+  <section class="about" id="about">
+    <div class="about-photo" data-reveal>
+      <img src="assets/profile.jpg" alt="Shashank Sekhar VS" loading="lazy" onerror="this.parentElement.classList.add('photo-fallback')">
+    </div>
+    <div class="about-text" data-reveal>
+      <p class="section-label">01 — About</p>
+      <p class="about-lede">
+        Final-year engineering student working across three disciplines that are usually kept
+        apart: applied AI, production web engineering, and UX research. Currently freelancing
+        as a web developer while leading both the technical and design tracks of my college's
+        department club.
+      </p>
+      <p class="about-body">
+        My AI work leans toward systems that don't just predict but act, combining forecasting
+        models with reinforcement-learning agents that make operational decisions. My web work
+        favours Next.js and Supabase, built for real tenants and real traffic, not demos. My
+        design work starts from primary research: surveys, interviews, and usability testing,
+        before a single screen gets drawn.
+      </p>
+      <p class="about-body">
+        But more than any one discipline, what I love is building: taking a rough idea and
+        pushing it all the way to something real that people can open, click through, and
+        actually use. That moment when a feature finally works exactly as imagined never gets
+        old, and it's the reason I keep choosing projects that ship rather than projects that
+        stay theoretical.
+      </p>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="work" id="work">
+    <p class="section-label">02 — Selected Work</p>
+    <h2 class="section-title" data-reveal>Things I've shipped</h2>
+
+    <div class="tabs" role="tablist" data-reveal>
+      <button class="tab active" data-tab="ai" role="tab" aria-selected="true">AI Engineering</button>
+      <button class="tab" data-tab="web" role="tab" aria-selected="false">Web Development</button>
+      <button class="tab" data-tab="design" role="tab" aria-selected="false">Design</button>
+    </div>
+
+    <!-- AI -->
+    <div class="tab-panel active" data-panel="ai">
+
+      <article class="entry" data-reveal>
+        <div class="entry-num">01</div>
+        <div class="entry-body">
+          <h3><a href="projects/supply-chain-ai.html">Hybrid AI Framework for Predictive &amp; Adaptive Supply Chain Management</a></h3>
+          <p>
+            A hybrid system combining CatBoost regression with a PPO reinforcement-learning agent
+            to run e-commerce supply chain operations. CatBoost forecasts demand, profit, delivery
+            time and late-delivery risk; those forecasts become state inputs for an RL agent that
+            adaptively controls inventory, order prioritization, and delivery scheduling via
+            reward-based feedback. Evaluated on the DataCo Smart Supply Chain dataset (~180K
+            records): mean reward of <strong>+222.24</strong> vs. <strong>&minus;120.5</strong>
+            for the baseline, with strong RMSE, MAE and R² across every prediction task.
+          </p>
+          <div class="tags">
+            <span>CatBoost</span><span>PPO / RL</span><span>Python</span><span>Time-series</span>
+          </div>
+          <a href="projects/supply-chain-ai.html" class="entry-link">View project →</a>
+        </div>
+      </article>
+
+      <article class="entry" data-reveal>
+        <div class="entry-num">02</div>
+        <div class="entry-body">
+          <h3><a href="projects/flowforge.html">FlowForge — Autonomous Task Decomposition &amp; Execution Engine</a></h3>
+          <p>
+            A multi-agent pipeline that ingests a project brief and autonomously plans, researches,
+            drafts and reviews deliverables through role-specialized agents with inter-agent
+            feedback loops. Built with CrewAI and the Anthropic API, with quality-threshold exit
+            conditions and structured output to a finished document.
+          </p>
+          <div class="tags">
+            <span>CrewAI</span><span>Anthropic API</span><span>Multi-agent</span>
+          </div>
+          <a href="projects/flowforge.html" class="entry-link">View project →</a>
+        </div>
+      </article>
+
+      <article class="entry" data-reveal>
+        <div class="entry-num">03</div>
+        <div class="entry-body">
+          <h3><a href="projects/trackr.html">Trackr — Agentic Health Tracking &amp; Nutritional Intelligence</a></h3>
+          <p>
+            An AI agent built on LangChain and the Anthropic API that lets users log workouts and
+            meals in natural language, with tool-calling integrations for real-time nutritional
+            lookup and progress analytics. Persistent memory layer for longitudinal tracking and
+            personalized recommendations.
+          </p>
+          <div class="tags">
+            <span>LangChain</span><span>Anthropic API</span><span>Tool-calling</span>
+          </div>
+          <a href="projects/trackr.html" class="entry-link">View project →</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- WEB -->
+    <div class="tab-panel" data-panel="web">
+
+      <article class="entry" data-reveal>
+        <div class="entry-num">01</div>
+        <div class="entry-body">
+          <h3><a href="projects/cycleworld.html">Cycle World Pondicherry — Headless Cycle Storefront</a></h3>
+          <p>
+            Built on Next.js with server-side rendering for SEO-optimized catalogue pages and
+            dynamic product routing. Backed by a normalized Supabase Postgres schema with
+            RLS-enforced access control and Realtime inventory sync, deployed through a Vercel
+            pipeline with edge caching achieving sub-second TTFB.
+          </p>
+          <div class="tags">
+            <span>Next.js</span><span>Supabase</span><span>Postgres RLS</span><span>Vercel Edge</span>
+          </div>
+          <a href="projects/cycleworld.html" class="entry-link">View project →</a>
+        </div>
+      </article>
+
+      <article class="entry" data-reveal>
+        <div class="entry-num">02</div>
+        <div class="entry-body">
+          <h3><a href="projects/qless-platform.html">QLess — Multi-Tenant Real-Time Pre-Order &amp; Queue Management Platform</a></h3>
+          <p>
+            A production-deployed SaaS platform where any food vendor can onboard, publish menus
+            and manage orders through a dedicated staff dashboard. Built on Next.js and Supabase
+            with Realtime-powered live token broadcasting, QR-based customer access, and
+            Postgres RLS-enforced per-tenant data isolation.
+          </p>
+          <div class="tags">
+            <span>Next.js</span><span>Supabase Realtime</span><span>Multi-tenant</span><span>QR access</span>
+          </div>
+          <a href="projects/qless-platform.html" class="entry-link">View project →</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- DESIGN -->
+    <div class="tab-panel" data-panel="design">
+
+      <article class="entry" data-reveal>
+        <div class="entry-num">01</div>
+        <div class="entry-body">
+          <h3><a href="projects/frabe.html">Frabe — Women's Personal Safety App</a> <span class="entry-tag">UX/UI Case Study</span></h3>
+          <p>
+            End-to-end Android safety application, driven by primary research across 80 survey
+            respondents and 12 in-depth interviews. Solved the core usability challenge of reaching
+            emergency help in under 8 seconds through a one-tap SOS flow, horizontally scrollable
+            helpline cards, and a safe-area map surfacing 9+ location categories. High-fidelity
+            screens delivered in Figma, with the interaction model stress-tested through Maze
+            usability testing.
+          </p>
+          <div class="tags">
+            <span>User research</span><span>Figma</span><span>Usability testing</span>
+          </div>
+          <a href="projects/frabe.html" class="entry-link">View case study →</a>
+        </div>
+      </article>
+
+      <article class="entry" data-reveal>
+        <div class="entry-num">02</div>
+        <div class="entry-body">
+          <h3><a href="projects/qless-design.html">QLess — Campus Pre-Order &amp; Queue Management App</a> <span class="entry-tag">UX/UI Case Study</span></h3>
+          <p>
+            Mobile pre-ordering and live token tracking experience for high-footfall campus dining
+            venues, removing physical queues through a streamlined order-to-token flow. Research
+            across canteen visitors, full journey mapping from browse to collection, and 10
+            high-fidelity screens — onboarding, menu discovery, cart, live order status, order
+            history, profile — built around a sub-3-tap ordering principle.
+          </p>
+          <div class="tags">
+            <span>User research</span><span>Journey mapping</span><span>Figma</span>
+          </div>
+          <a href="projects/qless-design.html" class="entry-link">View case study →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- KNOWN TECHNOLOGIES -->
+  <section class="tech" id="tech">
+    <p class="section-label">03 — Known Technologies</p>
+    <h2 class="section-title" data-reveal>What I build with</h2>
+    <p class="tech-sub" data-reveal>The stack I reach for across AI systems, production web platforms, and interface design.</p>
+
+    <div class="tech-groups">
+      <div class="tech-group">
+        <p class="tech-group-label">Languages</p>
+        <div class="tech-grid" data-reveal>
+          <div class="tech-item" style="--tint:#00599C"><span class="tech-icon"><img src="https://cdn.simpleicons.org/cplusplus/00599C" alt="C++" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">C++</span></div>
+          <div class="tech-item" style="--tint:#A8B9CC"><span class="tech-icon"><img src="https://cdn.simpleicons.org/c/A8B9CC" alt="C" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">C</span></div>
+          <div class="tech-item" style="--tint:#4B8BBE"><span class="tech-icon"><img src="https://cdn.simpleicons.org/python/4B8BBE" alt="Python" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Python</span></div>
+          <div class="tech-item" style="--tint:#E76F00"><span class="tech-icon"><img src="https://cdn.simpleicons.org/openjdk/FFFFFF" alt="Java" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Java</span></div>
+        </div>
+      </div>
+
+      <div class="tech-group">
+        <p class="tech-group-label">Frontend</p>
+        <div class="tech-grid" data-reveal>
+          <div class="tech-item" style="--tint:#E34F26"><span class="tech-icon"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">HTML5</span></div>
+          <div class="tech-item" style="--tint:#2965F1"><span class="tech-icon"><img src="https://cdn.simpleicons.org/css3/2965F1" alt="CSS3" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">CSS3</span></div>
+          <div class="tech-item" style="--tint:#F7DF1E"><span class="tech-icon"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">JavaScript</span></div>
+          <div class="tech-item" style="--tint:#38BDF8"><span class="tech-icon"><img src="https://cdn.simpleicons.org/tailwindcss/38BDF8" alt="Tailwind CSS" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Tailwind</span></div>
+          <div class="tech-item" style="--tint:#A1A1AA"><span class="tech-icon"><img src="https://cdn.simpleicons.org/nextdotjs/FFFFFF" alt="Next.js" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Next.js</span></div>
+          <div class="tech-item" style="--tint:#61DAFB"><span class="tech-icon"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">React</span></div>
+        </div>
+      </div>
+
+      <div class="tech-group">
+        <p class="tech-group-label">Backend &amp; APIs</p>
+        <div class="tech-grid" data-reveal>
+          <div class="tech-item" style="--tint:#339933"><span class="tech-icon"><img src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node.js" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Node.js</span></div>
+          <div class="tech-item" style="--tint:#009688"><span class="tech-icon"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">FastAPI</span></div>
+          <div class="tech-item" style="--tint:#A1A1AA"><span class="tech-icon"><img src="https://cdn.simpleicons.org/flask/FFFFFF" alt="Flask" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Flask</span></div>
+        </div>
+      </div>
+
+      <div class="tech-group">
+        <p class="tech-group-label">Databases</p>
+        <div class="tech-grid" data-reveal>
+          <div class="tech-item" style="--tint:#4169E1"><span class="tech-icon"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">SQL</span></div>
+          <div class="tech-item" style="--tint:#47A248"><span class="tech-icon"><img src="https://cdn.simpleicons.org/mongodb/47A248" alt="MongoDB" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">MongoDB</span></div>
+          <div class="tech-item" style="--tint:#4479A1"><span class="tech-icon"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">MySQL</span></div>
+          <div class="tech-item" style="--tint:#3C8FC4"><span class="tech-icon"><img src="https://cdn.simpleicons.org/sqlite/3C8FC4" alt="SQLite" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">SQLite</span></div>
+          <div class="tech-item" style="--tint:#3ECF8E"><span class="tech-icon"><img src="https://cdn.simpleicons.org/supabase/3ECF8E" alt="Supabase" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Supabase</span></div>
+          <div class="tech-item" style="--tint:#FFCA28"><span class="tech-icon"><img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="Firebase" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Firebase</span></div>
+        </div>
+      </div>
+
+      <div class="tech-group">
+        <p class="tech-group-label">AI &amp; ML</p>
+        <div class="tech-grid" data-reveal>
+          <div class="tech-item" style="--tint:#7FE6C8"><span class="tech-icon"><img src="https://cdn.simpleicons.org/langchain/7FE6C8" alt="LangChain" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">LangChain</span></div>
+          <div class="tech-item" style="--tint:#A1A1AA"><span class="tech-icon"><img src="https://cdn.simpleicons.org/openai/FFFFFF" alt="OpenAI" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">OpenAI</span></div>
+          <div class="tech-item" style="--tint:#A1A1AA"><span class="tech-icon"><img src="https://cdn.simpleicons.org/anthropic/FFFFFF" alt="Anthropic" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Anthropic</span></div>
+          <div class="tech-item" style="--tint:#FFD21E"><span class="tech-icon"><img src="https://cdn.simpleicons.org/huggingface/FFD21E" alt="Hugging Face" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Hugging Face</span></div>
+        </div>
+      </div>
+
+      <div class="tech-group">
+        <p class="tech-group-label">DevOps &amp; Tools</p>
+        <div class="tech-grid" data-reveal>
+          <div class="tech-item" style="--tint:#2496ED"><span class="tech-icon"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Docker</span></div>
+          <div class="tech-item" style="--tint:#326CE5"><span class="tech-icon"><img src="https://cdn.simpleicons.org/kubernetes/326CE5" alt="Kubernetes" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Kubernetes</span></div>
+          <div class="tech-item" style="--tint:#F05032"><span class="tech-icon"><img src="https://cdn.simpleicons.org/git/F05032" alt="Git" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Git</span></div>
+          <div class="tech-item" style="--tint:#A1A1AA"><span class="tech-icon"><img src="https://cdn.simpleicons.org/github/FFFFFF" alt="GitHub" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">GitHub</span></div>
+          <div class="tech-item" style="--tint:#A1A1AA"><span class="tech-icon"><img src="https://cdn.simpleicons.org/vercel/FFFFFF" alt="Vercel" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Vercel</span></div>
+          <div class="tech-item" style="--tint:#F24E1E"><span class="tech-icon"><img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma" loading="lazy" onerror="techIconFallback(this)"></span><span class="tech-name">Figma</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE + EDUCATION -->
+  <section class="split" id="experience">
+    <div class="split-col">
+      <p class="section-label">04 — Experience</p>
+      <h2 class="section-title" data-reveal>Where I've worked</h2>
+
+      <ol class="timeline">
+        <li data-reveal>
+          <span class="tl-date">Jan 2026 — May 2026</span>
+          <h4>Freelance Web Developer</h4>
+          <p>Built a full-scale webpage end-to-end and handled its SEO.</p>
+        </li>
+        <li data-reveal>
+          <span class="tl-date">Jan 2025 — Dec 2026</span>
+          <h4>Technical Lead — College Department Club</h4>
+          <p>Led the technical team across club projects: code quality, system design, and
+          mentoring junior developers in frontend and best practices.</p>
+        </li>
+        <li data-reveal>
+          <span class="tl-date">Jan 2025 — Dec 2026</span>
+          <h4>Design Lead — College Department Club</h4>
+          <p>Led the design team's UI/UX initiatives, mentored junior designers in design
+          thinking and prototyping, and ran workshops on user-centered problem solving.</p>
+        </li>
+      </ol>
+    </div>
+
+    <div class="split-col" id="education">
+      <p class="section-label">05 — Education</p>
+      <h2 class="section-title" data-reveal>Where I've studied</h2>
+
+      <ol class="timeline">
+        <li data-reveal>
+          <span class="tl-date">2022 — 2026</span>
+          <h4>Bachelor of Technology</h4>
+          <p>Sri Manakula Vinayagar Engineering College</p>
+        </li>
+        <li data-reveal>
+          <span class="tl-date">2021 — 2022</span>
+          <h4>12th Grade</h4>
+          <p>Petit Seminaire Higher Secondary School</p>
+        </li>
+        <li data-reveal>
+          <span class="tl-date">2019 — 2020</span>
+          <h4>10th Grade</h4>
+          <p>Petit Seminaire Higher Secondary School</p>
+        </li>
+      </ol>
+
+      <p class="section-label skills-label">Skills</p>
+      <div class="skill-groups" data-reveal>
+        <div class="skill-group">
+          <span class="skill-cat">Web</span>
+          <div class="tags"><span>HTML</span><span>Tailwind</span><span>JavaScript</span><span>Next.js</span></div>
+        </div>
+        <div class="skill-group">
+          <span class="skill-cat">AI / ML</span>
+          <div class="tags"><span>Python</span><span>RAG</span><span>LangChain</span></div>
+        </div>
+        <div class="skill-group">
+          <span class="skill-cat">Core</span>
+          <div class="tags"><span>Java</span><span>SQL</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <p class="section-label">06 — Contact</p>
+    <h2 class="contact-title" data-reveal>Let's talk.</h2>
+    <p class="contact-copy" data-reveal>
+      Open to AI engineering, full-stack, and product design roles. If my range across these
+      three feels useful to your team, I'd like to hear from you.
+    </p>
+    <div class="contact-links" data-reveal>
+      <a href="mailto:vsshashank08@gmail.com" class="contact-link" style="--tint:#EA4335">
+        <span class="contact-icon"><img src="https://cdn.simpleicons.org/gmail/EA4335" alt="Email" loading="lazy" onerror="techIconFallback(this)"></span>
+        <span class="contact-text">
+          <span class="cl-label">Email</span>
+          <span class="cl-value">vsshashank08@gmail.com</span>
+        </span>
+      </a>
+      <a href="https://www.linkedin.com/in/shashank-sekhar-449557258/" target="_blank" rel="noopener" class="contact-link" style="--tint:#0A66C2">
+        <span class="contact-icon"><img src="https://cdn.simpleicons.org/linkedin/0A66C2" alt="LinkedIn" loading="lazy" onerror="techIconFallback(this)"></span>
+        <span class="contact-text">
+          <span class="cl-label">LinkedIn</span>
+          <span class="cl-value">shashank-sekhar</span>
+        </span>
+      </a>
+      <a href="https://github.com/hank0811" target="_blank" rel="noopener" class="contact-link" style="--tint:#A1A1AA">
+        <span class="contact-icon"><img src="https://cdn.simpleicons.org/github/FFFFFF" alt="GitHub" loading="lazy" onerror="techIconFallback(this)"></span>
+        <span class="contact-text">
+          <span class="cl-label">GitHub</span>
+          <span class="cl-value">hank0811</span>
+        </span>
+      </a>
+      <a href="tel:+919150233560" class="contact-link" style="--tint:#7FE6C8">
+        <span class="contact-icon contact-icon-svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </span>
+        <span class="contact-text">
+          <span class="cl-label">Phone</span>
+          <span class="cl-value">+91 91502 33560</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span>© <span id="year"></span> Shashank Sekhar VS</span>
+  <span>Designed &amp; built by hand.</span>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

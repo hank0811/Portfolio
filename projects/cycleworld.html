@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cycle World Pondicherry — Headless Storefront — Shashank Sekhar VS</title>
+<meta name="description" content="A headless e-commerce storefront built on Next.js and Supabase with SSR catalogue pages, RLS access control, and sub-second TTFB.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="bg-fx" aria-hidden="true">
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
+</div>
+
+<header class="site-header">
+  <a href="../index.html" class="mark">SS<span class="mark-dot">·</span></a>
+  <nav class="nav">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#tech">Tech</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#education">Education</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+  <a href="mailto:vsshashank08@gmail.com" class="nav-cta">Say hello</a>
+</header>
+
+<main>
+  <p class="breadcrumb" data-reveal><a href="../index.html#work">Work</a> / Web Development / 01</p>
+
+  <section class="proj-hero">
+    <p class="proj-kicker" data-reveal>Web Development — Case Study</p>
+    <h1 class="proj-title" data-reveal>Cycle World Pondicherry — Headless Cycle Storefront</h1>
+    <p class="proj-dek" data-reveal>
+      A server-rendered, SEO-optimized storefront for a real local cycle retailer — built headless
+      on Next.js and Supabase, with realtime inventory and edge caching that keeps pages loading
+      in under a second.
+    </p>
+    <div class="meta-row" data-reveal>
+      <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Full-Stack Developer</span></div>
+      <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">Headless e-commerce</span></div>
+      <div class="meta-item"><span class="meta-label">Stack</span><span class="meta-value">Next.js + Supabase</span></div>
+      <div class="meta-item"><span class="meta-label">Performance</span><span class="meta-value">Sub-second TTFB</span></div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">01 — Overview</p>
+    <h2 class="proj-section-head" data-reveal>A catalogue that needs to rank, and load instantly</h2>
+    <p class="proj-lede" data-reveal>
+      Cycle World needed a storefront that real customers would find through search, not just a
+      digital catalogue — which meant SEO and load speed weren't nice-to-haves, they were the
+      point.
+    </p>
+    <p class="proj-body" data-reveal>
+      Client-rendered product listings are invisible to search engines and slow on first paint —
+      both fatal for a local retailer competing on discoverability. The build needed
+      server-rendered catalogue pages that ranked, product routing that scaled with inventory
+      changes, and a backend that could keep stock data accurate without manual updates.
+    </p>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">02 — Architecture</p>
+    <h2 class="proj-section-head" data-reveal>How it's built</h2>
+    <div class="proj-cols" data-reveal>
+      <div class="proj-col">
+        <h4>Rendering layer</h4>
+        <p>Built on the Next.js Web Router with server-side rendering for catalogue pages —
+        product listings are fully rendered HTML on first request, optimized for search
+        indexing, with dynamic routing per product.</p>
+      </div>
+      <div class="proj-col">
+        <h4>Data layer</h4>
+        <p>A normalized Supabase Postgres schema backs the catalogue, with Row-Level Security
+        policies enforcing exactly which data each request context can access — no
+        over-permissioned queries reaching the client.</p>
+      </div>
+      <div class="proj-col">
+        <h4>Realtime &amp; delivery</h4>
+        <p>Supabase Realtime keeps inventory in sync as stock changes, while a Vercel deployment
+        pipeline with edge caching pushes rendered pages close to the user — the combination
+        behind the sub-second TTFB.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">03 — Tech Stack</p>
+    <h2 class="proj-section-head" data-reveal>What it's built with</h2>
+    <div class="stack-groups" data-reveal>
+      <div class="skill-group">
+        <span class="skill-cat">Frontend</span>
+        <div class="tags"><span>Next.js</span><span>Web Router / SSR</span></div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-cat">Backend</span>
+        <div class="tags"><span>Supabase</span><span>Postgres</span><span>Row-Level Security</span><span>Realtime</span></div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-cat">Delivery</span>
+        <div class="tags"><span>Vercel</span><span>Edge caching</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">04 — Results</p>
+    <h2 class="proj-section-head" data-reveal>What it achieves</h2>
+    <div class="stat-grid" data-reveal>
+      <div class="stat">
+        <span class="stat-num">&lt;1s</span>
+        <span class="stat-label">time-to-first-byte via Vercel edge caching</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">SSR</span>
+        <span class="stat-label">fully server-rendered, SEO-optimized catalogue</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">RLS</span>
+        <span class="stat-label">row-level access control on every query</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">Live</span>
+        <span class="stat-label">realtime inventory sync, no stale stock data</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">05 — Learnings</p>
+    <div class="numbered-grid" data-reveal>
+      <div class="numbered-card">
+        <span class="num">01</span>
+        <h4>SEO shapes the architecture, not just the copy</h4>
+        <p>Choosing SSR over client rendering wasn't a performance afterthought — it was the
+        decision that made the storefront discoverable at all.</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">02</span>
+        <h4>RLS as the default, not an add-on</h4>
+        <p>Designing the Postgres schema with Row-Level Security from the start avoided
+        retrofitting access control onto a schema that wasn't built for it.</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">03</span>
+        <h4>Edge caching and realtime can coexist</h4>
+        <p>Balancing aggressive edge caching for speed against realtime inventory accuracy meant
+        being deliberate about what's cached versus what's always fetched live.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="proj-nav" data-reveal>
+    <a href="../index.html#work">← Back to all work</a>
+    <a href="qless-platform.html">Next: QLess Platform →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <span>© <span id="year"></span> Shashank Sekhar VS</span>
+  <span>Designed &amp; built by hand.</span>
+</footer>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

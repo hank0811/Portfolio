@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trackr — Agentic Health Tracking & Nutritional Intelligence — Shashank Sekhar VS</title>
+<meta name="description" content="An AI agent built on LangChain and the Anthropic API for natural-language workout and meal logging with persistent memory.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="bg-fx" aria-hidden="true">
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
+</div>
+
+<header class="site-header">
+  <a href="../index.html" class="mark">SS<span class="mark-dot">·</span></a>
+  <nav class="nav">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#tech">Tech</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#education">Education</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+  <a href="mailto:vsshashank08@gmail.com" class="nav-cta">Say hello</a>
+</header>
+
+<main>
+  <p class="breadcrumb" data-reveal><a href="../index.html#work">Work</a> / AI Engineering / 03</p>
+
+  <section class="proj-hero">
+    <p class="proj-kicker" data-reveal>AI Engineering — Case Study</p>
+    <h1 class="proj-title" data-reveal>Trackr — Agentic Health Tracking &amp; Nutritional Intelligence</h1>
+    <p class="proj-dek" data-reveal>
+      An AI agent that lets you log a workout or a meal the way you'd tell a friend about it —
+      then remembers it, looks up the nutrition, and tracks your progress over time.
+    </p>
+    <div class="meta-row" data-reveal>
+      <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">AI / ML Engineer</span></div>
+      <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">Conversational agent</span></div>
+      <div class="meta-item"><span class="meta-label">Framework</span><span class="meta-value">LangChain + Anthropic API</span></div>
+      <div class="meta-item"><span class="meta-label">Memory</span><span class="meta-value">Persistent, longitudinal</span></div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">01 — Overview</p>
+    <h2 class="proj-section-head" data-reveal>Logging health data shouldn't feel like data entry</h2>
+    <p class="proj-lede" data-reveal>
+      Most fitness and nutrition apps ask users to fill in structured forms — pick a food from a
+      database, enter grams, select an exercise from a list. Trackr instead takes natural
+      language: "had two eggs and toast, then ran 5k" — and does the structuring itself.
+    </p>
+    <p class="proj-body" data-reveal>
+      The harder problem isn't parsing that sentence once — it's turning a stream of casual,
+      inconsistent daily entries into a reliable longitudinal record the user (and the agent)
+      can actually reason about weeks later.
+    </p>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">02 — How it works</p>
+    <h2 class="proj-section-head" data-reveal>Tool-calling + persistent memory</h2>
+    <div class="proj-cols" data-reveal>
+      <div class="proj-col">
+        <h4>Natural-language logging</h4>
+        <p>Users describe meals and workouts conversationally. The agent extracts structured
+        entries (food items, quantities, exercise type, duration/intensity) from free text.</p>
+      </div>
+      <div class="proj-col">
+        <h4>Tool-calling integrations</h4>
+        <p>Real-time nutritional lookups are handled through tool calls rather than relying on
+        the model's own memorized nutrition data — keeping figures grounded and current.</p>
+      </div>
+      <div class="proj-col">
+        <h4>Persistent memory layer</h4>
+        <p>Logged entries feed a longitudinal store the agent can query, enabling trend-aware
+        answers ("you've been under your protein target most of this week") instead of
+        one-off responses.</p>
+      </div>
+    </div>
+    <p class="proj-body" style="margin-top:2rem" data-reveal>
+      That memory layer is also what powers personalized recommendations — because the agent
+      isn't just reacting to the latest message, it's reasoning over the user's actual history.
+    </p>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">03 — Tech Stack</p>
+    <h2 class="proj-section-head" data-reveal>What it's built with</h2>
+    <div class="stack-groups" data-reveal>
+      <div class="skill-group">
+        <span class="skill-cat">Orchestration</span>
+        <div class="tags"><span>LangChain</span><span>Tool-calling</span></div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-cat">Model</span>
+        <div class="tags"><span>Anthropic API</span></div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-cat">Language</span>
+        <div class="tags"><span>Python</span></div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-cat">Data</span>
+        <div class="tags"><span>Persistent memory store</span><span>Nutritional lookup API</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">04 — Learnings</p>
+    <div class="numbered-grid" data-reveal>
+      <div class="numbered-card">
+        <span class="num">01</span>
+        <h4>Grounding beats memorized facts</h4>
+        <p>Routing nutritional lookups through a real tool call, instead of trusting the model's
+        internal knowledge, avoided the plausible-but-wrong numbers that undermine trust in a
+        tracking tool.</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">02</span>
+        <h4>Memory design is a UX decision, not just infra</h4>
+        <p>What the agent chooses to remember and resurface shapes how "personalized" it feels —
+        this mattered more to perceived quality than raw model capability.</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">03</span>
+        <h4>Natural language input needs a forgiving parser</h4>
+        <p>Real users describe meals inconsistently. Handling ambiguity gracefully (asking a
+        clarifying question rather than guessing silently) improved logging accuracy.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="proj-nav" data-reveal>
+    <a href="flowforge.html">← Previous: FlowForge</a>
+    <a href="../index.html#work">Back to all work →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <span>© <span id="year"></span> Shashank Sekhar VS</span>
+  <span>Designed &amp; built by hand.</span>
+</footer>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

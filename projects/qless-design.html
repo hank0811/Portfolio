@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QLess — Campus Pre-Order App, UX Case Study — Shashank Sekhar VS</title>
+<meta name="description" content="A UX/UI case study for QLess, a food pre-ordering app built around a sub-30-second order-to-OTP flow.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="bg-fx" aria-hidden="true">
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
+</div>
+
+<header class="site-header">
+  <a href="../index.html" class="mark">SS<span class="mark-dot">·</span></a>
+  <nav class="nav">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#tech">Tech</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#education">Education</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+  <a href="mailto:vsshashank08@gmail.com" class="nav-cta">Say hello</a>
+</header>
+
+<main>
+  <p class="breadcrumb" data-reveal><a href="../index.html#work">Work</a> / Design / 02</p>
+
+  <section class="proj-hero">
+    <p class="proj-kicker" data-reveal>UX/UI Case Study</p>
+    <h1 class="proj-title" data-reveal>QLess — Campus Pre-Order &amp; Queue Management App</h1>
+    <p class="proj-dek" data-reveal>
+      A food pre-ordering app that lets you schedule your meal, pay in advance, and collect with
+      a single spoken OTP — zero waiting, zero friction.
+    </p>
+    <div class="meta-row" data-reveal>
+      <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">UX / UI Design</span></div>
+      <div class="meta-item"><span class="meta-label">Platform</span><span class="meta-value">Android Mobile App</span></div>
+      <div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">6 Weeks</span></div>
+      <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2025</span></div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">01 — Overview</p>
+    <h2 class="proj-section-head" data-reveal>What is QLess?</h2>
+    <p class="proj-lede" data-reveal>
+      QLess is a dedicated mobile pre-ordering app for a single food shop. Schedule a pickup
+      time, pay in advance, and receive a unique OTP — say it at the counter, walk out with food
+      in hand. No queue, no fumbling, no wasted time.
+    </p>
+    <p class="proj-body" data-reveal>
+      Unlike a marketplace such as Swiggy or Zomato, QLess is built exclusively for one shop —
+      enabling deep integration, zero commission, and a seamless experience for that shop's
+      loyal customers. <em>(This case study explores the single-shop product experience; see the
+      <a href="qless-platform.html">multi-tenant engineering build</a> for how the platform
+      scales to any vendor.)</em>
+    </p>
+    <div class="proj-cols" data-reveal>
+      <div class="proj-col">
+        <h4>The challenge</h4>
+        <p>People skip meals or make poor food choices not for lack of appetite, but because
+        they can't afford the time cost of a queue. The goal: make scheduling a meal easier
+        than skipping it.</p>
+      </div>
+      <div class="proj-col">
+        <h4>My role</h4>
+        <p>End-to-end UX and UI design — user interviews and research through wireframing,
+        prototyping, and final high-fidelity screens across all 10 app states.</p>
+      </div>
+      <div class="proj-col">
+        <h4>Tools used</h4>
+        <p>Figma, FigJam, Google Forms, Maze.</p>
+      </div>
+    </div>
+    <div class="stat-grid" style="margin-top:2.5rem" data-reveal>
+      <div class="stat"><span class="stat-num">1</span><span class="stat-label">OTP to collect your meal — no card, no queue</span></div>
+      <div class="stat"><span class="stat-num">10</span><span class="stat-label">screens designed end-to-end for the full journey</span></div>
+      <div class="stat"><span class="stat-num">&lt;30s</span><span class="stat-label">target time from app open to completed order</span></div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">02 — Problem Statement</p>
+    <blockquote class="pull-quote" data-reveal>
+      How might we let busy people pre-order food for a specific time, pay in advance, and
+      collect it instantly — without waiting in a single queue?
+    </blockquote>
+    <div class="stat-grid" style="margin-top:2rem" data-reveal>
+      <div class="stat"><span class="stat-num">12–18</span><span class="stat-label">average minutes lost per person per queue visit</span></div>
+      <div class="stat"><span class="stat-num">63%</span><span class="stat-label">skip meals due to time pressure on weekdays</span></div>
+      <div class="stat"><span class="stat-num">&lt;30s</span><span class="stat-label">target time from app open to order placed</span></div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">03 — Research</p>
+    <h2 class="proj-section-head" data-reveal>Understanding the user</h2>
+    <p class="proj-body" data-reveal>
+      10 in-depth interviews with working professionals, students and commuters, a 60-respondent
+      survey, and competitive analysis of existing ordering apps.
+    </p>
+    <div class="proj-cols" data-reveal>
+      <div class="proj-col">
+        <h4>In-depth interviews</h4>
+        <p>10 semi-structured interviews, ages 18&ndash;42. Key themes: frustration with
+        unpredictable wait times, anxiety about being late, desire for a guaranteed ETA.</p>
+      </div>
+      <div class="proj-col">
+        <h4>Survey research</h4>
+        <p>60 respondents across Puducherry and Chennai, ages 18&ndash;50. 71% had never
+        pre-ordered food from a local shop before.</p>
+      </div>
+      <div class="proj-col">
+        <h4>Competitive analysis</h4>
+        <p>No single-shop app combined time-slot scheduling + prepayment + OTP pickup. Swiggy/Zomato
+        add delivery overhead; WhatsApp orders have no payment or scheduling integration.</p>
+      </div>
+    </div>
+    <h3 class="proj-section-head" style="font-size:1.3rem; margin-top:3rem" data-reveal>Survey findings — what users want most</h3>
+    <div class="stat-grid" data-reveal>
+      <div class="stat"><span class="stat-num">88%</span><span class="stat-label">pre-schedule pickup time</span></div>
+      <div class="stat"><span class="stat-num">81%</span><span class="stat-label">pay in advance, no cash at counter</span></div>
+      <div class="stat"><span class="stat-num">76%</span><span class="stat-label">real-time slot availability</span></div>
+      <div class="stat"><span class="stat-num">73%</span><span class="stat-label">simple OTP-based pickup</span></div>
+      <div class="stat"><span class="stat-num">58%</span><span class="stat-label">order history and reorder</span></div>
+      <div class="stat"><span class="stat-num">44%</span><span class="stat-label">push notification reminders</span></div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">04 — User Personas</p>
+    <h2 class="proj-section-head" data-reveal>Who we're designing for</h2>
+    <div class="persona-grid" data-reveal>
+      <div class="persona-card">
+        <span class="persona-emoji">🎓</span>
+        <h4>Karthik Selvam</h4>
+        <span class="persona-role">College Student · Daily Commuter · Age 21</span>
+        <div class="persona-tags"><span>Tech-savvy</span><span>Budget-conscious</span><span>Time-poor</span></div>
+        <h5>Goals</h5>
+        <ul>
+          <li>Eat a proper meal without being late to class</li>
+          <li>Know exactly when food will be ready</li>
+          <li>Pay digitally, no cash fumbling</li>
+        </ul>
+        <h5>Pain points</h5>
+        <ul>
+          <li>Canteen queues run 15–20 min at peak hours</li>
+          <li>Food often cold or sold out on late arrival</li>
+          <li>No existing way to plan ahead</li>
+        </ul>
+      </div>
+      <div class="persona-card">
+        <span class="persona-emoji">💼</span>
+        <h4>Anitha Krishnan</h4>
+        <span class="persona-role">Working Professional · Office Manager · Age 34</span>
+        <div class="persona-tags"><span>Routine-driven</span><span>Efficiency-first</span><span>Loyal regular</span></div>
+        <h5>Goals</h5>
+        <ul>
+          <li>Order lunch before leaving office, collect on arrival</li>
+          <li>Use the same shop daily without the queue penalty</li>
+          <li>Reorder favourites with minimal taps</li>
+        </ul>
+        <h5>Pain points</h5>
+        <ul>
+          <li>30-minute lunch break, queue wastes half of it</li>
+          <li>No app serves her local shop</li>
+          <li>Delivery apps add fee and delay — she's 200m away</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">05 — User Journey</p>
+    <h2 class="proj-section-head" data-reveal>Karthik's lunch scenario</h2>
+    <div class="journey-table-wrap" data-reveal>
+      <table class="journey-table">
+        <thead>
+          <tr><th>Stage</th><th>Action</th><th>Thoughts</th><th>Emotion</th><th>Design opportunity</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1. Decide to eat</td><td>Checks time between classes — 40 min gap</td><td>"I have time but not if I queue."</td><td>Calculating</td><td>Launchable in under 2 taps from home screen</td></tr>
+          <tr><td>2. Open app</td><td>Sees dashboard with menu categories</td><td>"I need Masala Dosa and a coffee."</td><td>Focused</td><td>Category chips + food list visible instantly</td></tr>
+          <tr><td>3. Browse &amp; add</td><td>Taps Masala Dosa, adds to cart</td><td>"That's what I want. Add it."</td><td>Confident</td><td>Product detail scannable in 5 seconds</td></tr>
+          <tr><td>4. Pick time slot</td><td>Sees 11:30 AM slot available</td><td>"Perfect, I'll be there right at 11:30."</td><td>Relieved</td><td>Slot grid shows availability at a glance</td></tr>
+          <tr><td>5. Pay &amp; confirm</td><td>Reviews summary, pays via UPI</td><td>"Done. I can stop thinking about this."</td><td>Satisfied</td><td>One-tap UPI, instant OTP generation</td></tr>
+          <tr><td>6. Collect</td><td>Says "7421" at the shop, gets food in 10 sec</td><td>"So much better than queuing."</td><td>Delighted</td><td>OTP large, readable, with countdown timer</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">06 — Pain Points</p>
+    <h2 class="proj-section-head" data-reveal>What was broken</h2>
+    <div class="numbered-grid" data-reveal>
+      <div class="numbered-card">
+        <span class="num">01 ⏱️</span>
+        <h4>No way to predict wait time</h4>
+        <p>Every visit was a gamble against the clock — no signal of kitchen load or wait
+        time.</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">02 📱</span>
+        <h4>No single-shop pre-order app</h4>
+        <p>Marketplaces don't serve small shops; WhatsApp ordering has no payment or pickup-time
+        confirmation.</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">03 💸</span>
+        <h4>Cash-only at the counter</h4>
+        <p>64% preferred digital payment, but shops had no integration — fumbling for cash
+        added friction during a rushed break.</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">04 🍽️</span>
+        <h4>Food sold out or cold on arrival</h4>
+        <p>Popular items sold out by peak hours for anyone arriving without pre-ordering.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">07 — How Might We</p>
+    <h2 class="proj-section-head" data-reveal>Reframing the problem</h2>
+    <div class="numbered-grid" data-reveal>
+      <div class="numbered-card">
+        <span class="num">HMW 01</span>
+        <p>How might we let users place an order and lock in a pickup time in under 30 seconds?</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">HMW 02</span>
+        <p>How might we make prepayment feel safe and instant so users never hesitate at
+        checkout?</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">HMW 03</span>
+        <p>How might we make pickup frictionless so a 4-digit code replaces every counter
+        interaction?</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">08 — UI Design</p>
+    <h2 class="proj-section-head" data-reveal>The final screens</h2>
+    <p class="proj-body" data-reveal>
+      Designed around one principle: the fastest path from hungry to fed. Large tap targets,
+      clear hierarchy, and a calm two-tone palette at every step.
+    </p>
+    <div class="proj-gallery" data-reveal>
+      <img src="https://hank0811.github.io/Portfolio/image1.png" alt="QLess login and signup screens" loading="lazy">
+      <p class="gallery-caption">
+        <strong>Onboarding that feels fast, not clinical.</strong> A toggle between Login and
+        Sign Up eliminates navigation confusion. A deep forest-green header creates instant
+        brand recognition; an amber CTA stays unmissable against the neutral form background.
+      </p>
+    </div>
+    <div class="proj-gallery" style="margin-top:2.5rem" data-reveal>
+      <img src="https://hank0811.github.io/Portfolio/image2.png" alt="QLess dashboard screen" loading="lazy">
+      <p class="gallery-caption">
+        <strong>Dashboard — browse like Swiggy, order for your shop.</strong> A fixed header
+        with location and search, horizontal category chips, and a vertical food list grouped
+        by category — familiar Swiggy-like patterns adapted to a single-shop context.
+      </p>
+    </div>
+    <div class="proj-gallery" style="margin-top:2.5rem" data-reveal>
+      <img src="https://hank0811.github.io/Portfolio/image3.png" alt="QLess OTP pickup screen" loading="lazy">
+      <p class="gallery-caption">
+        <strong>OTP pickup — confirmed in seconds.</strong> A unique 4-digit OTP in large,
+        high-contrast digits with a countdown timer directly below — no ambiguity about
+        validity, no checking email or SMS.
+      </p>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">09 — Design System</p>
+    <h2 class="proj-section-head" data-reveal>Colours &amp; typography</h2>
+    <p class="proj-body" data-reveal>
+      A constrained two-tone palette — deep forest green for trust and authority, warm amber
+      for action and energy — with neutral surfaces providing breathing room.
+    </p>
+    <div class="swatch-row" data-reveal>
+      <div class="swatch"><div class="swatch-color" style="background:#1A3C34"></div><div class="swatch-name">Deep Forest</div><div class="swatch-hex">#1A3C34</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#2E6B5E"></div><div class="swatch-name">Forest Mid</div><div class="swatch-hex">#2E6B5E</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#E8F2EF; border-color:var(--line-strong)"></div><div class="swatch-name">Forest Light</div><div class="swatch-hex">#E8F2EF</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#F4A227"></div><div class="swatch-name">Amber CTA</div><div class="swatch-hex">#F4A227</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#7A4A00"></div><div class="swatch-name">Amber Dark</div><div class="swatch-hex">#7A4A00</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#F8F7F5; border-color:var(--line-strong)"></div><div class="swatch-name">Surface</div><div class="swatch-hex">#F8F7F5</div></div>
+    </div>
+    <div class="type-specimen" data-reveal>
+      <span class="spec-label">Display / Hero — Playfair Display 700</span>
+      <div style="font-family:'Fraunces',serif; font-size:2rem; font-weight:700">QLess</div>
+    </div>
+    <div class="type-specimen" data-reveal>
+      <span class="spec-label">Body / UI — DM Sans 400 / 600</span>
+      <div>Pre-order your food. Schedule a pickup time. Pay now. Walk in, say your code, walk out.</div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">10 — Design Decisions</p>
+    <h2 class="proj-section-head" data-reveal>Why we made these choices</h2>
+    <div class="numbered-grid" data-reveal>
+      <div class="numbered-card decision-card">
+        <span class="num">01</span>
+        <h4>Spoken OTP over QR code</h4>
+        <p>Faster than scanning — no brightness issues, no QR app, no awkward phone-to-counter
+        angle.</p>
+      </div>
+      <div class="numbered-card decision-card">
+        <span class="num">02</span>
+        <h4>Prepayment as a benefit, not friction</h4>
+        <p>Reframed as "your food is waiting, fully paid" — removing the cash-fumbling
+        interaction entirely, not just speeding it up.</p>
+      </div>
+      <div class="numbered-card decision-card">
+        <span class="num">03</span>
+        <h4>Swiggy-style dashboard for familiarity</h4>
+        <p>Borrowing a mental model users already had reduced learning time to zero.</p>
+      </div>
+      <div class="numbered-card decision-card">
+        <span class="num">04</span>
+        <h4>Countdown timer below OTP</h4>
+        <p>Resolved "has it expired?" anxiety discovered in testing — one glance, full
+        confidence.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">11 — Outcomes</p>
+    <h2 class="proj-section-head" data-reveal>Impact &amp; results</h2>
+    <p class="proj-body" data-reveal>Usability testing with 12 participants across two rounds, plus stakeholder review with the shop owner.</p>
+    <div class="stat-grid" data-reveal>
+      <div class="stat"><span class="stat-num">22s</span><span class="stat-label">avg. time app-open to order placed — vs. a 30s target</span></div>
+      <div class="stat"><span class="stat-num">96%</span><span class="stat-label">task success rate for the full order flow</span></div>
+      <div class="stat"><span class="stat-num">4.8★</span><span class="stat-label">average usability rating from 12 test participants</span></div>
+      <div class="stat"><span class="stat-num">0</span><span class="stat-label">navigation errors on the OTP screen after round 2</span></div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">12 — Learnings</p>
+    <div class="numbered-grid" data-reveal>
+      <div class="numbered-card">
+        <span class="num">01</span>
+        <h4>Familiarity is a design asset, not laziness</h4>
+        <p>Reusing an existing mental model eliminated the learning curve entirely — saving
+        novel design energy for problems that actually needed it.</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">02</span>
+        <h4>Anxiety appears in unexpected places</h4>
+        <p>No one anticipated OTP-validity stress. You cannot predict anxiety points — you can
+        only discover them through testing.</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">03</span>
+        <h4>Constraints on the kitchen are UX features</h4>
+        <p>Limiting time-slot capacity felt like a product decision, but testing showed it was
+        crucial: users trusted the "zero wait" promise only once they understood the system
+        guaranteed it.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="proj-nav" data-reveal>
+    <a href="frabe.html">← Previous: Frabe</a>
+    <a href="../index.html#work">Back to all work →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <span>© <span id="year"></span> Shashank Sekhar VS</span>
+  <span>Designed &amp; built by hand.</span>
+</footer>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

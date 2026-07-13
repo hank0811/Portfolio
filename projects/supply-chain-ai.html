@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hybrid AI Framework for Supply Chain Management — Shashank Sekhar VS</title>
+<meta name="description" content="CatBoost + PPO reinforcement learning system for predictive and adaptive e-commerce supply chain management.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="bg-fx" aria-hidden="true">
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
+</div>
+
+<header class="site-header">
+  <a href="../index.html" class="mark">SS<span class="mark-dot">·</span></a>
+  <nav class="nav">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#tech">Tech</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#education">Education</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+  <a href="mailto:vsshashank08@gmail.com" class="nav-cta">Say hello</a>
+</header>
+
+<main>
+  <p class="breadcrumb" data-reveal><a href="../index.html#work">Work</a> / AI Engineering / 01</p>
+
+  <section class="proj-hero">
+    <p class="proj-kicker" data-reveal>AI Engineering — Case Study</p>
+    <h1 class="proj-title" data-reveal>Hybrid AI Framework for Predictive &amp; Adaptive Supply Chain Management</h1>
+    <p class="proj-dek" data-reveal>
+      A system that doesn't just forecast supply chain risk — it acts on it. CatBoost regression
+      models predict demand, profit, delivery time and late-delivery risk; a PPO reinforcement-learning
+      agent turns those forecasts into inventory, prioritization, and scheduling decisions.
+    </p>
+    <div class="meta-row" data-reveal>
+      <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">AI / ML Engineer</span></div>
+      <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">Research + Applied ML</span></div>
+      <div class="meta-item"><span class="meta-label">Dataset</span><span class="meta-value">DataCo Smart Supply Chain (~180K records)</span></div>
+      <div class="meta-item"><span class="meta-label">Core Result</span><span class="meta-value">+222.24 mean reward</span></div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">01 — Overview</p>
+    <h2 class="proj-section-head" data-reveal>Forecasting alone isn't a decision</h2>
+    <p class="proj-lede" data-reveal>
+      Most supply chain ML stops at prediction. This project treats forecasts as the beginning of
+      the pipeline, not the end — feeding them into an agent that has to actually choose what to do.
+    </p>
+    <p class="proj-body" data-reveal>
+      E-commerce supply chains fail in ways that are individually predictable but collectively hard
+      to act on: demand spikes, margin-losing SKUs, slow lanes, and orders that are already going to
+      be late. A forecasting model can flag all of this — but someone (or something) still has to
+      decide how to prioritize orders, allocate inventory, and schedule delivery under those
+      conditions, continuously, at scale. That's the gap this framework closes.
+    </p>
+    <div class="proj-cols" data-reveal>
+      <div class="proj-col">
+        <h4>The problem</h4>
+        <p>Static forecasting models tell you what's <em>likely</em> to happen, but leave the
+        operational response — what to restock, what to prioritize, what to reroute — to manual
+        rules or human judgment that doesn't scale with order volume.</p>
+      </div>
+      <div class="proj-col">
+        <h4>The approach</h4>
+        <p>Split the problem in two: let a strong supervised model (CatBoost) handle what it's
+        good at — accurate multi-metric forecasting — and let a reinforcement-learning agent
+        (PPO) handle what forecasting can't: sequential, reward-driven operational decisions.</p>
+      </div>
+      <div class="proj-col">
+        <h4>The result</h4>
+        <p>An agent that outperforms a static baseline by a wide margin on cumulative reward,
+        while the forecasting layer underneath maintains strong accuracy across every target
+        metric it predicts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">02 — Architecture</p>
+    <h2 class="proj-section-head" data-reveal>How the two models talk to each other</h2>
+    <p class="proj-body" data-reveal>
+      The system runs as a two-stage pipeline. Stage one is purely predictive; stage two is purely
+      decision-making — and the handoff between them is the actual engineering problem.
+    </p>
+    <div class="proj-cols" data-reveal>
+      <div class="proj-col">
+        <h4>Stage 1 — CatBoost forecasting layer</h4>
+        <p>Four CatBoost regressors trained on historical order data forecast: sales demand,
+        expected profit, delivery time, and late-delivery risk per order/SKU. Chosen for its
+        native handling of categorical features (shipping mode, region, category) without
+        heavy preprocessing, and its strong out-of-the-box accuracy on tabular data.</p>
+      </div>
+      <div class="proj-col">
+        <h4>Stage 2 — PPO decision agent</h4>
+        <p>The four forecasts become part of the state vector for a Proximal Policy Optimization
+        agent. The agent's action space covers inventory control, order prioritization, and
+        delivery scheduling; a shaped reward function scores outcomes on service level, cost,
+        and delay reduction rather than forecast accuracy alone.</p>
+      </div>
+      <div class="proj-col">
+        <h4>Why PPO</h4>
+        <p>PPO was chosen over value-based methods (e.g. DQN) for stability on a mixed
+        discrete/continuous action space and its clipped objective, which keeps policy updates
+        from destabilizing training when the reward landscape is noisy — a real risk with
+        operational reward shaping.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">03 — Tech Stack</p>
+    <h2 class="proj-section-head" data-reveal>What it's built with</h2>
+    <div class="stack-groups" data-reveal>
+      <div class="skill-group">
+        <span class="skill-cat">Modeling</span>
+        <div class="tags"><span>CatBoost</span><span>PPO (Reinforcement Learning)</span><span>scikit-learn</span></div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-cat">Language</span>
+        <div class="tags"><span>Python</span></div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-cat">Data</span>
+        <div class="tags"><span>DataCo Smart Supply Chain dataset</span><span>Pandas / NumPy</span></div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-cat">Evaluation</span>
+        <div class="tags"><span>RMSE</span><span>MAE</span><span>R²</span><span>Cumulative reward</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">04 — Results</p>
+    <h2 class="proj-section-head" data-reveal>Measured against a static baseline</h2>
+    <p class="proj-body" data-reveal>
+      Evaluated on the DataCo Smart Supply Chain dataset (~180,000 records), comparing the full
+      hybrid pipeline against a non-adaptive baseline policy.
+    </p>
+    <div class="stat-grid" data-reveal>
+      <div class="stat">
+        <span class="stat-num">+222.24</span>
+        <span class="stat-label">mean reward, RL agent</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">&minus;120.5</span>
+        <span class="stat-label">mean reward, static baseline</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">~180K</span>
+        <span class="stat-label">records evaluated (DataCo dataset)</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">4</span>
+        <span class="stat-label">forecast targets: demand, profit, delivery time, late-risk</span>
+      </div>
+    </div>
+    <p class="proj-body" style="margin-top:2rem" data-reveal>
+      Beyond the headline reward gap, the CatBoost forecasting layer held strong RMSE, MAE and R²
+      scores across all four prediction tasks — meaning the agent was making decisions on
+      genuinely reliable state information, not noisy guesses.
+    </p>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">05 — Learnings</p>
+    <div class="numbered-grid" data-reveal>
+      <div class="numbered-card">
+        <span class="num">01</span>
+        <h4>Reward shaping is the real design work</h4>
+        <p>Getting the RL agent to behave sensibly had far less to do with model architecture
+        and far more to do with how the reward function balanced competing goals (cost vs.
+        service level vs. delay).</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">02</span>
+        <h4>Forecast quality bounds decision quality</h4>
+        <p>An RL agent is only as good as the state it's given. Investing early in strong
+        CatBoost forecasts paid off directly in agent stability during training.</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">03</span>
+        <h4>Baselines make or break the story</h4>
+        <p>Without a clear non-adaptive baseline, a reward number alone means very little. The
+        comparison is what proves the adaptive approach earns its complexity.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="proj-nav" data-reveal>
+    <a href="../index.html#work">← Back to all work</a>
+    <a href="flowforge.html">Next: FlowForge →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <span>© <span id="year"></span> Shashank Sekhar VS</span>
+  <span>Designed &amp; built by hand.</span>
+</footer>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

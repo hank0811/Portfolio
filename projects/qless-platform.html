@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QLess — Multi-Tenant Queue Management Platform — Shashank Sekhar VS</title>
+<meta name="description" content="A production-deployed multi-tenant SaaS platform built on Next.js and Supabase for real-time pre-order and queue management.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="bg-fx" aria-hidden="true">
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
+</div>
+
+<header class="site-header">
+  <a href="../index.html" class="mark">SS<span class="mark-dot">·</span></a>
+  <nav class="nav">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#tech">Tech</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#education">Education</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+  <a href="mailto:vsshashank08@gmail.com" class="nav-cta">Say hello</a>
+</header>
+
+<main>
+  <p class="breadcrumb" data-reveal><a href="../index.html#work">Work</a> / Web Development / 02</p>
+
+  <section class="proj-hero">
+    <p class="proj-kicker" data-reveal>Web Development — Case Study</p>
+    <h1 class="proj-title" data-reveal>QLess — Multi-Tenant Real-Time Pre-Order &amp; Queue Management Platform</h1>
+    <p class="proj-dek" data-reveal>
+      A production-deployed SaaS platform where any food vendor can onboard, publish a menu, and
+      run live order queues — with per-tenant data isolation and realtime token broadcasting
+      built in from day one.
+    </p>
+    <div class="meta-row" data-reveal>
+      <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Full-Stack Developer</span></div>
+      <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">Multi-tenant SaaS</span></div>
+      <div class="meta-item"><span class="meta-label">Stack</span><span class="meta-value">Next.js + Supabase Realtime</span></div>
+      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Production-deployed</span></div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">01 — Overview</p>
+    <h2 class="proj-section-head" data-reveal>One platform, any number of vendors</h2>
+    <p class="proj-lede" data-reveal>
+      QLess as an engineering project is a platform, not a single app: any food vendor can sign
+      up, publish their own menu, and manage their own live order queue — without vendors seeing
+      each other's data.
+    </p>
+    <p class="proj-body" data-reveal>
+      The engineering challenge is different from a single-shop app: the same codebase and
+      database need to safely serve many independent vendors at once, each with their own staff
+      dashboard, menu, and customer queue, while customers get instant, no-login access via QR
+      code. <em>(This platform build shares its product roots with the QLess design case study —
+      see the <a href="qless-design.html">UX/UI case study</a> for the single-shop experience
+      this was designed around.)</em>
+    </p>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">02 — Architecture</p>
+    <h2 class="proj-section-head" data-reveal>How it's built</h2>
+    <div class="proj-cols" data-reveal>
+      <div class="proj-col">
+        <h4>Multi-tenancy</h4>
+        <p>Postgres Row-Level Security policies enforce per-tenant data isolation at the
+        database layer, so a vendor's menu, orders and staff accounts are structurally
+        unreachable by any other tenant's queries.</p>
+      </div>
+      <div class="proj-col">
+        <h4>Realtime queue &amp; tokens</h4>
+        <p>Supabase Realtime powers live token broadcasting — as orders move through the queue,
+        both the staff dashboard and customer-facing token display update instantly, no
+        polling required.</p>
+      </div>
+      <div class="proj-col">
+        <h4>Customer access</h4>
+        <p>Customers reach their order and live token status via a QR-based access flow — no
+        account creation, no app install, just a scan.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">03 — Tech Stack</p>
+    <h2 class="proj-section-head" data-reveal>What it's built with</h2>
+    <div class="stack-groups" data-reveal>
+      <div class="skill-group">
+        <span class="skill-cat">Frontend</span>
+        <div class="tags"><span>Next.js</span><span>Staff dashboard UI</span></div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-cat">Backend</span>
+        <div class="tags"><span>Supabase</span><span>Postgres RLS</span><span>Realtime</span></div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-cat">Access</span>
+        <div class="tags"><span>QR-based customer access</span><span>Multi-tenant onboarding</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">04 — Results</p>
+    <div class="stat-grid" data-reveal>
+      <div class="stat">
+        <span class="stat-num">Live</span>
+        <span class="stat-label">production-deployed, real vendors onboarded</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">N-tenant</span>
+        <span class="stat-label">any vendor can self-onboard independently</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">RLS</span>
+        <span class="stat-label">enforced per-tenant isolation at the database layer</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">QR</span>
+        <span class="stat-label">zero-login customer access</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="proj-section">
+    <p class="section-label">05 — Learnings</p>
+    <div class="numbered-grid" data-reveal>
+      <div class="numbered-card">
+        <span class="num">01</span>
+        <h4>Multi-tenancy has to be a schema decision, not a query filter</h4>
+        <p>Enforcing isolation through RLS at the database level, rather than trusting
+        application code to filter correctly, was the difference between "probably safe" and
+        actually safe.</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">02</span>
+        <h4>Realtime is a UX feature disguised as infra</h4>
+        <p>Live token broadcasting wasn't just a technical nice-to-have — it directly created
+        the "no queue" feeling that makes the product worth using.</p>
+      </div>
+      <div class="numbered-card">
+        <span class="num">03</span>
+        <h4>Frictionless access drives adoption</h4>
+        <p>Removing account creation entirely in favor of QR-based access measurably lowered
+        the barrier for first-time customers to actually use the queue system.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="proj-nav" data-reveal>
+    <a href="cycleworld.html">← Previous: Cycle World</a>
+    <a href="../index.html#work">Back to all work →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <span>© <span id="year"></span> Shashank Sekhar VS</span>
+  <span>Designed &amp; built by hand.</span>
+</footer>
+
+<script src="../js/script.js"></script>
+</body>
+</html>
