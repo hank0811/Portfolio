@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QLess Web — Live Demo</title>
+<meta name="description" content="Working demo of the QLess campus pre-order web app — browse the menu, book a pickup slot, and collect with a one-time code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#1a3c34; --forest-2:#2e6b5e; --amber:#f4a227; --amber-2:#ffc866;
+    --cream:#faf6ee; --paper:#fffdf8; --ink:#1c231f; --ink-soft:#5c6b62; --line:#e4ddcd;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; min-height:100vh; background:var(--cream); color:var(--ink);
+    font-family:'Archivo',sans-serif; -webkit-font-smoothing:antialiased;
+  }
+  .back-bar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 22px; background:var(--forest); color:#fff; font-size:.85rem;
+  }
+  .back-bar a{color:#fff; text-decoration:none; opacity:.85; display:flex; align-items:center; gap:6px;}
+  .back-bar a:hover{opacity:1;}
+  .back-bar span{opacity:.6; font-family:'IBM Plex Mono',monospace; font-size:.75rem;}
+
+  .app{max-width:520px; margin:0 auto; min-height:calc(100vh - 48px); background:var(--paper);
+    box-shadow:0 0 60px rgba(26,60,52,.12); display:flex; flex-direction:column;}
+
+  .app-header{background:var(--forest); color:#fff; padding:22px 20px 20px;}
+  .app-brand{display:flex; align-items:center; gap:10px; margin-bottom:4px;}
+  .app-brand .dot{width:10px; height:10px; border-radius:50%; background:var(--amber);}
+  .app-brand h1{font-family:'Fraunces',serif; font-size:1.4rem; margin:0; font-weight:600; letter-spacing:.01em;}
+  .app-header p{margin:0; font-size:.82rem; color:#cfe0da;}
+
+  .view{display:none; flex:1; flex-direction:column;}
+  .view.active{display:flex;}
+
+  /* MENU */
+  .menu-list{padding:16px 18px 100px; display:flex; flex-direction:column; gap:12px;}
+  .menu-item{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:14px; border:1px solid var(--line); border-radius:12px; background:#fff;
+  }
+  .menu-item .name{font-weight:600; font-size:.95rem;}
+  .menu-item .price{color:var(--ink-soft); font-size:.82rem; font-family:'IBM Plex Mono',monospace;}
+  .qty-box{display:flex; align-items:center; gap:10px;}
+  .qty-box button{
+    width:28px; height:28px; border-radius:50%; border:1px solid var(--forest-2);
+    background:#fff; color:var(--forest); font-size:1rem; cursor:pointer; line-height:1;
+  }
+  .qty-box button:hover{background:var(--forest); color:#fff;}
+  .qty-box span{min-width:16px; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:.85rem;}
+  .add-btn{
+    padding:8px 16px; border-radius:20px; border:none; background:var(--forest);
+    color:#fff; font-size:.82rem; font-weight:600; cursor:pointer;
+  }
+  .add-btn:hover{background:var(--forest-2);}
+
+  .cart-bar{
+    position:sticky; bottom:0; background:var(--amber); color:var(--forest);
+    padding:14px 18px; display:none; align-items:center; justify-content:space-between;
+    font-weight:600; font-size:.9rem; cursor:pointer; border-top:1px solid rgba(0,0,0,.06);
+  }
+  .cart-bar.show{display:flex;}
+
+  /* generic view padding */
+  .view-body{padding:20px 18px 100px; flex:1;}
+  .view-title{font-family:'Fraunces',serif; font-size:1.2rem; margin:0 0 4px;}
+  .view-sub{color:var(--ink-soft); font-size:.85rem; margin:0 0 18px;}
+
+  .cart-row{display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--line); font-size:.9rem;}
+  .cart-total{display:flex; justify-content:space-between; padding:14px 0; font-weight:700; font-size:1rem;}
+
+  .slot-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .slot{
+    padding:12px; border-radius:10px; border:1px solid var(--line); background:#fff;
+    text-align:center; cursor:pointer; font-family:'IBM Plex Mono',monospace; font-size:.85rem;
+  }
+  .slot .cap{display:block; font-size:.7rem; color:var(--ink-soft); margin-top:3px;}
+  .slot.full{opacity:.4; cursor:not-allowed; text-decoration:line-through;}
+  .slot.selected{border-color:var(--forest); background:var(--forest); color:#fff;}
+  .slot.selected .cap{color:#cfe0da;}
+
+  .primary-btn{
+    width:100%; padding:14px; border-radius:10px; border:none; background:var(--forest);
+    color:#fff; font-weight:700; font-size:.95rem; cursor:pointer; margin-top:18px;
+  }
+  .primary-btn:hover{background:var(--forest-2);}
+  .primary-btn:disabled{background:#c9cfc9; cursor:not-allowed;}
+  .ghost-btn{
+    width:100%; padding:12px; border-radius:10px; border:1px solid var(--line); background:transparent;
+    color:var(--ink-soft); font-weight:600; font-size:.85rem; cursor:pointer; margin-top:10px;
+  }
+
+  .pay-summary{background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px;}
+
+  .spinner{
+    width:28px; height:28px; border:3px solid var(--line); border-top-color:var(--forest);
+    border-radius:50%; margin:30px auto; animation:spin .8s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* CONFIRM */
+  .confirm-body{padding:30px 20px 60px; text-align:center; flex:1;}
+  .otp-label{font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px;}
+  .otp-code{
+    font-family:'IBM Plex Mono',monospace; font-size:3rem; font-weight:700; letter-spacing:.15em;
+    color:var(--forest); background:#fff; border:2px dashed var(--amber); border-radius:16px;
+    padding:18px 10px; margin:0 0 14px;
+  }
+  .countdown{font-family:'IBM Plex Mono',monospace; color:var(--amber-2); background:var(--forest);
+    display:inline-block; padding:6px 14px; border-radius:20px; font-size:.85rem; margin-bottom:22px;}
+  .confirm-note{font-size:.85rem; color:var(--ink-soft); max-width:320px; margin:0 auto 26px; line-height:1.5;}
+  .slot-chip{
+    display:inline-block; background:var(--cream); border:1px solid var(--line);
+    padding:8px 14px; border-radius:20px; font-size:.82rem; margin-bottom:20px;
+  }
+
+  .badge{
+    position:absolute; top:16px; right:16px; background:var(--amber); color:var(--forest);
+    font-size:.68rem; font-weight:700; padding:3px 9px; border-radius:10px; letter-spacing:.03em;
+  }
+  .app-header{position:relative;}
+</style>
+</head>
+<body>
+
+<div class="back-bar">
+  <a href="qless-platform.html">← Back to case study</a>
+  <span>QLess Web · client-side demo</span>
+</div>
+
+<div class="app">
+
+  <!-- MENU VIEW -->
+  <div class="view active" id="view-menu">
+    <div class="app-header">
+      <span class="badge">Prototype</span>
+      <div class="app-brand"><span class="dot"></span><h1>QLess</h1></div>
+      <p>Sunrise Canteen · pre-order, skip the line</p>
+    </div>
+    <div class="menu-list" id="menuList"></div>
+    <div class="cart-bar" id="cartBar" onclick="goTo('view-cart')">
+      <span id="cartBarText">0 items</span>
+      <span>View cart →</span>
+    </div>
+  </div>
+
+  <!-- CART VIEW -->
+  <div class="view" id="view-cart">
+    <div class="app-header">
+      <div class="app-brand"><span class="dot"></span><h1>Your order</h1></div>
+      <p>Review before you book a slot</p>
+    </div>
+    <div class="view-body">
+      <div id="cartRows"></div>
+      <div class="cart-total"><span>Total</span><span id="cartTotal">₹0</span></div>
+      <button class="primary-btn" id="toSlotsBtn" onclick="goTo('view-slots')">Choose pickup time →</button>
+      <button class="ghost-btn" onclick="goTo('view-menu')">← Add more items</button>
+    </div>
+  </div>
+
+  <!-- SLOTS VIEW -->
+  <div class="view" id="view-slots">
+    <div class="app-header">
+      <div class="app-brand"><span class="dot"></span><h1>Pickup slot</h1></div>
+      <p>Each slot only holds so many orders — that's what keeps it a zero-queue pickup</p>
+    </div>
+    <div class="view-body">
+      <div class="slot-grid" id="slotGrid"></div>
+      <button class="primary-btn" id="toPayBtn" disabled onclick="goTo('view-pay')">Confirm slot →</button>
+    </div>
+  </div>
+
+  <!-- PAY VIEW -->
+  <div class="view" id="view-pay">
+    <div class="app-header">
+      <div class="app-brand"><span class="dot"></span><h1>Pay &amp; confirm</h1></div>
+      <p>Simulated checkout — no real payment is processed</p>
+    </div>
+    <div class="view-body">
+      <div class="pay-summary" id="paySummary"></div>
+      <div id="payAction">
+        <button class="primary-btn" onclick="simulatePay()">Pay <span id="payAmount">₹0</span> via UPI</button>
+      </div>
+      <div id="payLoading" style="display:none;">
+        <div class="spinner"></div>
+        <p style="text-align:center; color:var(--ink-soft); font-size:.85rem;">Confirming your order…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFIRM VIEW -->
+  <div class="view" id="view-confirm">
+    <div class="app-header">
+      <div class="app-brand"><span class="dot"></span><h1>Order confirmed</h1></div>
+      <p>Say this code at the counter to collect</p>
+    </div>
+    <div class="confirm-body">
+      <p class="otp-label">Your pickup code</p>
+      <div class="otp-code" id="otpCode">0000</div>
+      <div class="countdown" id="countdown">Ready in 10:00</div>
+      <br>
+      <span class="slot-chip" id="slotChip">Slot —</span>
+      <p class="confirm-note">No ticket to show, no screen to scan — just speak the code at the counter and your order is ready to go.</p>
+      <button class="primary-btn" style="max-width:280px; margin:0 auto;" onclick="resetApp()">Start a new order</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const MENU = [
+    {id:'dosa', name:'Masala Dosa', price:60},
+    {id:'coffee', name:'Filter Coffee', price:25},
+    {id:'sandwich', name:'Veg Sandwich', price:45},
+    {id:'samosa', name:'Samosa (2 pc)', price:30},
+    {id:'coldcoffee', name:'Cold Coffee', price:55},
+    {id:'idli', name:'Idli (2 pc)', price:40},
+  ];
+
+  const SLOT_TIMES = ['12:00','12:15','12:30','12:45','1:00','1:15'];
+  let slots = SLOT_TIMES.map((t,i)=>({time:t, capacity:4, taken:(i===1?4:(i===3?3:Math.floor(Math.random()*3)))}));
+
+  let cart = {}; // id -> qty
+  let selectedSlot = null;
+  let countdownTimer = null;
+
+  function renderMenu(){
+    const list = document.getElementById('menuList');
+    list.innerHTML = '';
+    MENU.forEach(item=>{
+      const qty = cart[item.id] || 0;
+      const row = document.createElement('div');
+      row.className = 'menu-item';
+      row.innerHTML = `
+        <div>
+          <div class="name">${item.name}</div>
+          <div class="price">₹${item.price}</div>
+        </div>
+        ${qty === 0
+          ? `<button class="add-btn" onclick="changeQty('${item.id}',1)">Add</button>`
+          : `<div class="qty-box">
+              <button onclick="changeQty('${item.id}',-1)">−</button>
+              <span>${qty}</span>
+              <button onclick="changeQty('${item.id}',1)">+</button>
+            </div>`
+        }
+      `;
+      list.appendChild(row);
+    });
+    updateCartBar();
+  }
+
+  function changeQty(id, delta){
+    cart[id] = (cart[id] || 0) + delta;
+    if (cart[id] <= 0) delete cart[id];
+    renderMenu();
+  }
+
+  function cartCount(){ return Object.values(cart).reduce((a,b)=>a+b,0); }
+  function cartTotal(){
+    return Object.entries(cart).reduce((sum,[id,qty])=>{
+      const item = MENU.find(m=>m.id===id);
+      return sum + item.price*qty;
+    },0);
+  }
+
+  function updateCartBar(){
+    const bar = document.getElementById('cartBar');
+    const count = cartCount();
+    if (count > 0){
+      bar.classList.add('show');
+      document.getElementById('cartBarText').textContent = `${count} item${count>1?'s':''} · ₹${cartTotal()}`;
+    } else {
+      bar.classList.remove('show');
+    }
+  }
+
+  function renderCart(){
+    const rows = document.getElementById('cartRows');
+    rows.innerHTML = '';
+    Object.entries(cart).forEach(([id,qty])=>{
+      const item = MENU.find(m=>m.id===id);
+      const row = document.createElement('div');
+      row.className = 'cart-row';
+      row.innerHTML = `<span>${item.name} × ${qty}</span><span>₹${item.price*qty}</span>`;
+      rows.appendChild(row);
+    });
+    document.getElementById('cartTotal').textContent = `₹${cartTotal()}`;
+    document.getElementById('toSlotsBtn').disabled = cartCount() === 0;
+  }
+
+  function renderSlots(){
+    const grid = document.getElementById('slotGrid');
+    grid.innerHTML = '';
+    slots.forEach((s,i)=>{
+      const remaining = s.capacity - s.taken;
+      const full = remaining <= 0;
+      const div = document.createElement('div');
+      div.className = 'slot' + (full ? ' full' : '') + (selectedSlot===i ? ' selected' : '');
+      div.innerHTML = `${s.time}<span class="cap">${full ? 'Full' : remaining+' left'}</span>`;
+      if (!full){
+        div.onclick = () => { selectedSlot = i; renderSlots(); document.getElementById('toPayBtn').disabled = false; };
+      }
+      grid.appendChild(div);
+    });
+  }
+
+  function renderPay(){
+    const s = slots[selectedSlot];
+    document.getElementById('paySummary').innerHTML = `
+      ${Object.entries(cart).map(([id,qty])=>{
+        const item = MENU.find(m=>m.id===id);
+        return `<div class="cart-row"><span>${item.name} × ${qty}</span><span>₹${item.price*qty}</span></div>`;
+      }).join('')}
+      <div class="cart-row" style="border-bottom:none;"><span>Pickup slot</span><span>${s.time}</span></div>
+      <div class="cart-total"><span>Total</span><span>₹${cartTotal()}</span></div>
+    `;
+    document.getElementById('payAmount').textContent = `₹${cartTotal()}`;
+    document.getElementById('payAction').style.display = 'block';
+    document.getElementById('payLoading').style.display = 'none';
+  }
+
+  function simulatePay(){
+    document.getElementById('payAction').style.display = 'none';
+    document.getElementById('payLoading').style.display = 'block';
+    slots[selectedSlot].taken += 1;
+    setTimeout(()=>{
+      goTo('view-confirm');
+    }, 1100);
+  }
+
+  function renderConfirm(){
+    const otp = String(Math.floor(1000 + Math.random()*9000));
+    document.getElementById('otpCode').textContent = otp;
+    document.getElementById('slotChip').textContent = `Slot ${slots[selectedSlot].time}`;
+    let remaining = 600;
+    clearInterval(countdownTimer);
+    const el = document.getElementById('countdown');
+    countdownTimer = setInterval(()=>{
+      remaining--;
+      const m = Math.floor(remaining/60), sec = remaining%60;
+      el.textContent = remaining > 0 ? `Ready in ${m}:${String(sec).padStart(2,'0')}` : 'Ready now';
+      if (remaining <= 0) clearInterval(countdownTimer);
+    }, 1000);
+    el.textContent = 'Ready in 10:00';
+  }
+
+  function goTo(viewId){
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    document.getElementById(viewId).classList.add('active');
+    window.scrollTo(0,0);
+    if (viewId === 'view-cart') renderCart();
+    if (viewId === 'view-slots') renderSlots();
+    if (viewId === 'view-pay') renderPay();
+    if (viewId === 'view-confirm') renderConfirm();
+  }
+
+  function resetApp(){
+    cart = {};
+    selectedSlot = null;
+    clearInterval(countdownTimer);
+    renderMenu();
+    goTo('view-menu');
+  }
+
+  renderMenu();
+</script>
+
+</body>
+</html>

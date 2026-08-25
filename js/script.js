@@ -45,3 +45,53 @@ tabs.forEach((tab) => {
     }
   });
 });
+
+// Project gallery lightbox — click a screenshot to zoom, arrow keys to browse
+const galleryImgs = Array.from(document.querySelectorAll(".proj-gallery img"));
+if (galleryImgs.length) {
+  const overlay = document.createElement("div");
+  overlay.className = "lightbox-overlay";
+  overlay.innerHTML = `
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous image">&larr;</button>
+    <img class="lightbox-img" src="" alt="">
+    <button class="lightbox-next" aria-label="Next image">&rarr;</button>
+    <span class="lightbox-count"></span>
+  `;
+  document.body.appendChild(overlay);
+
+  const lbImg = overlay.querySelector(".lightbox-img");
+  const lbCount = overlay.querySelector(".lightbox-count");
+  let current = 0;
+
+  function openLightbox(i) {
+    current = (i + galleryImgs.length) % galleryImgs.length;
+    lbImg.src = galleryImgs[current].getAttribute("src");
+    lbImg.alt = galleryImgs[current].getAttribute("alt") || "";
+    lbCount.textContent = `${current + 1} / ${galleryImgs.length}`;
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+  function closeLightbox() {
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  galleryImgs.forEach((img, i) => {
+    img.addEventListener("click", () => openLightbox(i));
+  });
+
+  overlay.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+  overlay.querySelector(".lightbox-prev").addEventListener("click", () => openLightbox(current - 1));
+  overlay.querySelector(".lightbox-next").addEventListener("click", () => openLightbox(current + 1));
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!overlay.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") openLightbox(current - 1);
+    if (e.key === "ArrowRight") openLightbox(current + 1);
+  });
+}

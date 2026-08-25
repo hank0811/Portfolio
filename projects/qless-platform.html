@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QLess — Multi-Tenant Queue Management Platform — Shashank Sekhar VS</title>
-<meta name="description" content="A production-deployed multi-tenant SaaS platform built on Next.js and Supabase for real-time pre-order and queue management.">
+<title>QLess — Campus Pre-Order Web App — Shashank Sekhar VS</title>
+<meta name="description" content="Turning the QLess pre-order concept from a Figma prototype into a working, click-through web app — menu, slot booking and OTP pickup, built in vanilla JS.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -28,68 +28,76 @@
     <a href="../index.html#education">Education</a>
     <a href="../index.html#contact">Contact</a>
   </nav>
-  <a href="mailto:vsshashank08@gmail.com" class="nav-cta">Say hello</a>
+  <a href="mailto:vsshashank08@gmail.com" class="nav-cta">Say hello!</a>
 </header>
 
 <main>
   <p class="breadcrumb" data-reveal><a href="../index.html#work">Work</a> / Web Development / 02</p>
 
   <section class="proj-hero">
+    <a href="qless-app.html" class="nav-cta hero-demo-link" data-reveal>Launch the live demo →</a>
     <p class="proj-kicker" data-reveal>Web Development — Case Study</p>
-    <h1 class="proj-title" data-reveal>QLess — Multi-Tenant Real-Time Pre-Order &amp; Queue Management Platform</h1>
+    <h1 class="proj-title" data-reveal>QLess — Campus Pre-Order Web App</h1>
     <p class="proj-dek" data-reveal>
-      A production-deployed SaaS platform where any food vendor can onboard, publish a menu, and
-      run live order queues — with per-tenant data isolation and realtime token broadcasting
-      built in from day one.
+      The QLess ordering flow started as a Figma prototype. This is what happened when it got
+      built out as an actual web app — menu, cart, slot booking and OTP pickup, running in the
+      browser with no framework and no backend to hide behind.
     </p>
     <div class="meta-row" data-reveal>
-      <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Full-Stack Developer</span></div>
-      <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">Multi-tenant SaaS</span></div>
-      <div class="meta-item"><span class="meta-label">Stack</span><span class="meta-value">Next.js + Supabase Realtime</span></div>
-      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Production-deployed</span></div>
+      <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Frontend Developer</span></div>
+      <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">Client-side web app</span></div>
+      <div class="meta-item"><span class="meta-label">Stack</span><span class="meta-value">Vanilla JS + CSS</span></div>
+      <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Working demo</span></div>
     </div>
   </section>
 
   <section class="proj-section">
     <p class="section-label">01 — Overview</p>
-    <h2 class="proj-section-head" data-reveal>One platform, any number of vendors</h2>
+    <h2 class="proj-section-head" data-reveal>From click-through to click-able</h2>
     <p class="proj-lede" data-reveal>
-      QLess as an engineering project is a platform, not a single app: any food vendor can sign
-      up, publish their own menu, and manage their own live order queue — without vendors seeing
-      each other's data.
+      A Figma prototype can hide a lot of assumptions — every screen looks reachable, every state
+      looks handled, because someone drew it that way. Building QLess as a real web app was about
+      finding out whether the pre-order flow designed in the
+      <a href="qless-design.html">QLess UX case study</a> actually held up once it had to run on
+      real state, real input and real edge cases instead of pre-wired hotspots.
     </p>
     <p class="proj-body" data-reveal>
-      The engineering challenge is different from a single-shop app: the same codebase and
-      database need to safely serve many independent vendors at once, each with their own staff
-      dashboard, menu, and customer queue, while customers get instant, no-login access via QR
-      code. <em>(This platform build shares its product roots with the QLess design case study —
-      see the <a href="qless-design.html">UX/UI case study</a> for the single-shop experience
-      this was designed around.)</em>
+      The scope stayed deliberately tight: no server, no database, no login system — just the
+      core ordering loop a single-shop canteen actually needs, built to run entirely in the
+      browser. Menu, cart, slot booking and OTP pickup all had to work off nothing but JavaScript
+      state and the DOM, which meant every interaction had to be handled honestly instead of
+      faked with a static mockup.
     </p>
   </section>
 
   <section class="proj-section">
-    <p class="section-label">02 — Architecture</p>
-    <h2 class="proj-section-head" data-reveal>How it's built</h2>
+    <p class="section-label">02 — How it's built</p>
+    <h2 class="proj-section-head" data-reveal>Three moving parts, one shared state object</h2>
     <div class="proj-cols" data-reveal>
       <div class="proj-col">
-        <h4>Multi-tenancy</h4>
-        <p>Postgres Row-Level Security policies enforce per-tenant data isolation at the
-        database layer, so a vendor's menu, orders and staff accounts are structurally
-        unreachable by any other tenant's queries.</p>
+        <h4>Menu &amp; cart</h4>
+        <p>A plain JS object keyed by item ID tracks quantities. Every add, remove or quantity
+        change re-renders the menu list and the sticky cart bar from that single source of
+        truth — no separate DOM state to fall out of sync.</p>
       </div>
       <div class="proj-col">
-        <h4>Realtime queue &amp; tokens</h4>
-        <p>Supabase Realtime powers live token broadcasting — as orders move through the queue,
-        both the staff dashboard and customer-facing token display update instantly, no
-        polling required.</p>
+        <h4>Slot capacity</h4>
+        <p>Pickup slots are modelled with a fixed capacity per slot, not an unlimited list of
+        times. Once a slot fills up it's shown as full and becomes unselectable — the zero-queue
+        promise only means anything if slots can actually run out.</p>
       </div>
       <div class="proj-col">
-        <h4>Customer access</h4>
-        <p>Customers reach their order and live token status via a QR-based access flow — no
-        account creation, no app install, just a scan.</p>
+        <h4>OTP pickup</h4>
+        <p>Confirming an order generates a random 4-digit code and starts a live countdown, the
+        same collect-by-code pattern from the original design, rebuilt here as an actual timer
+        rather than a static screenshot of one.</p>
       </div>
     </div>
+    <p class="proj-body" style="margin-top:2rem" data-reveal>
+      The whole flow — menu, cart, slot picker, simulated payment, OTP confirmation — is one
+      HTML file with view-switching handled by toggling a single active class, so the app never
+      reloads the page as the customer moves through checkout.
+    </p>
   </section>
 
   <section class="proj-section">
@@ -97,16 +105,16 @@
     <h2 class="proj-section-head" data-reveal>What it's built with</h2>
     <div class="stack-groups" data-reveal>
       <div class="skill-group">
-        <span class="skill-cat">Frontend</span>
-        <div class="tags"><span>Next.js</span><span>Staff dashboard UI</span></div>
+        <span class="skill-cat">Markup &amp; styling</span>
+        <div class="tags"><span>HTML5</span><span>CSS3</span></div>
       </div>
       <div class="skill-group">
-        <span class="skill-cat">Backend</span>
-        <div class="tags"><span>Supabase</span><span>Postgres RLS</span><span>Realtime</span></div>
+        <span class="skill-cat">Logic</span>
+        <div class="tags"><span>Vanilla JavaScript</span><span>No framework</span></div>
       </div>
       <div class="skill-group">
-        <span class="skill-cat">Access</span>
-        <div class="tags"><span>QR-based customer access</span><span>Multi-tenant onboarding</span></div>
+        <span class="skill-cat">State</span>
+        <div class="tags"><span>In-memory cart state</span><span>Slot capacity model</span></div>
       </div>
     </div>
   </section>
@@ -115,20 +123,20 @@
     <p class="section-label">04 — Results</p>
     <div class="stat-grid" data-reveal>
       <div class="stat">
-        <span class="stat-num">Live</span>
-        <span class="stat-label">production-deployed, real vendors onboarded</span>
+        <span class="stat-num">0</span>
+        <span class="stat-label">dependencies — no framework, no build step</span>
       </div>
       <div class="stat">
-        <span class="stat-num">N-tenant</span>
-        <span class="stat-label">any vendor can self-onboard independently</span>
+        <span class="stat-num">5</span>
+        <span class="stat-label">connected views sharing one state object</span>
       </div>
       <div class="stat">
-        <span class="stat-num">RLS</span>
-        <span class="stat-label">enforced per-tenant isolation at the database layer</span>
+        <span class="stat-num">10 min</span>
+        <span class="stat-label">live OTP countdown, not a mocked screen</span>
       </div>
       <div class="stat">
-        <span class="stat-num">QR</span>
-        <span class="stat-label">zero-login customer access</span>
+        <span class="stat-num">1 file</span>
+        <span class="stat-label">the entire app ships as a single page</span>
       </div>
     </div>
   </section>
@@ -138,22 +146,24 @@
     <div class="numbered-grid" data-reveal>
       <div class="numbered-card">
         <span class="num">01</span>
-        <h4>Multi-tenancy has to be a schema decision, not a query filter</h4>
-        <p>Enforcing isolation through RLS at the database level, rather than trusting
-        application code to filter correctly, was the difference between "probably safe" and
-        actually safe.</p>
+        <h4>A working build finds what a mockup hides</h4>
+        <p>The design case study's "guaranteed pickup" promise only became a real engineering
+        problem once slots needed actual capacity limits — a prototype can't run out of
+        anything, an app has to decide what happens when it does.</p>
       </div>
       <div class="numbered-card">
         <span class="num">02</span>
-        <h4>Realtime is a UX feature disguised as infra</h4>
-        <p>Live token broadcasting wasn't just a technical nice-to-have — it directly created
-        the "no queue" feeling that makes the product worth using.</p>
+        <h4>State management doesn't need a framework at this scale</h4>
+        <p>A single cart object and a handful of render functions were enough to keep five views
+        in sync — reaching for React here would have added ceremony without solving a problem
+        that existed.</p>
       </div>
       <div class="numbered-card">
         <span class="num">03</span>
-        <h4>Frictionless access drives adoption</h4>
-        <p>Removing account creation entirely in favor of QR-based access measurably lowered
-        the barrier for first-time customers to actually use the queue system.</p>
+        <h4>Constraints make a demo feel true</h4>
+        <p>Capping slot capacity and running a real countdown timer, instead of leaving both
+        unlimited, is what makes the zero-queue pitch believable even in a backend-free
+        prototype.</p>
       </div>
     </div>
   </section>
@@ -166,7 +176,7 @@
 
 <footer class="site-footer">
   <span>© <span id="year"></span> Shashank Sekhar VS</span>
-  <span>Designed &amp; built by hand.</span>
+  <span>Designed and built by Hank.</span>
 </footer>
 
 <script src="../js/script.js"></script>
