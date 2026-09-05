@@ -1,6 +1,27 @@
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Mobile nav toggle
+const navToggle = document.querySelector(".nav-toggle");
+const mobileNav = document.querySelector(".mobile-nav");
+if (navToggle && mobileNav) {
+  const setNavOpen = (isOpen) => {
+    navToggle.classList.toggle("open", isOpen);
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    mobileNav.classList.toggle("open", isOpen);
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  };
+  navToggle.addEventListener("click", () => {
+    setNavOpen(!navToggle.classList.contains("open"));
+  });
+  mobileNav.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => setNavOpen(false));
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navToggle.classList.contains("open")) setNavOpen(false);
+  });
+}
+
 // Scroll-reveal
 const revealEls = document.querySelectorAll("[data-reveal]");
 const io = new IntersectionObserver(
